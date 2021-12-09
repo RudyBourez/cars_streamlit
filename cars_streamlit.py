@@ -1,7 +1,7 @@
 import streamlit as st
 import pymongo
 
-client = pymongo.MongoClient("mongodb+srv://Rudy_datascience:Cr21042014.@cluster0.mlwpv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+client = pymongo.MongoClient(**st.secrets["mongo"])
 db = client.Kaggle_cars
 
 @st.cache
