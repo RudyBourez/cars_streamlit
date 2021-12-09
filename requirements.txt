@@ -1,2 +1,3 @@
 pymongo
-pymongp[srv]
+pymongo[srv]
+pandas
