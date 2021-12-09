@@ -4,7 +4,6 @@ import pymongo
 client = pymongo.MongoClient(**st.secrets["mongo"])
 db = client.Kaggle_cars
 
-@st.cache
 def get_data():
     cars_collection = db.Cars_dataset
     cars = [car for car in cars_collection.find()]
