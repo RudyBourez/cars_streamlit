@@ -5,10 +5,16 @@ client = pymongo.MongoClient(**st.secrets["mongo"])
 db = client.Kaggle_cars
 
 def get_data():
-    cars_collection = db.Cars_dataset
-    cars = [car for car in cars_collection.find()]
-    return cars
+    return db.Cars_dataset
 
-cars = get_data()
+cars_collection = get_data()
 
-st.write(cars)
+
+list_constructeur = [make["Make"] for make in cars_collection.find({}, {"Make":1, "_id":0})]
+constructeur = []
+for i in range (len(list_constructeur)):
+    if list_constructeur[i] not in constructeur:
+        constructeur.append(list_constructeur[i])
+
+with st.sidebar:
+     constructeur = st.selectbox("Constructeur", constructeur)
