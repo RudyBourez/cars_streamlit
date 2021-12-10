@@ -1,4 +1,3 @@
-from numpy import mod
 import streamlit as st
 import pymongo
 
